@@ -4,7 +4,6 @@ require 'sinatra'
 get '/' do
 	"Hello, World!"
 end
-
 get '/about' do
 	"A little about me."
 end
@@ -12,12 +11,9 @@ end
 get '/hello/:name' do
 	"Hello there, #{params[:name].upcase}."
 end
-
-
 get '/hello/:name/:city' do
   "Hey there #{params[:name]} from #{params[:city]}."
 end
-
 get '/more/*' do
 	params[:splay]
 end
@@ -27,4 +23,14 @@ get '/form' do
 end
 post '/form' do
 	"You said '#{params[:message]}'"
+end
+
+get '/secret' do
+	erb :secret
+end
+post '/secret' do
+	params[:secret].reverse
+end
+get '/decrypt/:secret' do
+	params[:secret].reverse
 end
