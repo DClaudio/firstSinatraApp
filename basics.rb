@@ -34,3 +34,7 @@ end
 get '/decrypt/:secret' do
 	params[:secret].reverse
 end
+
+not_found do
+	halt 404, 'not found'
+end
